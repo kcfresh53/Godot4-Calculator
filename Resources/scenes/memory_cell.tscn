@@ -1,0 +1,80 @@
+[gd_scene load_steps=5 format=3 uid="uid://jj4kusggiseo"]
+
+[ext_resource type="StyleBox" uid="uid://c1vv0jstq5de3" path="res://Resources/others/memoryButton_hover.tres" id="1_22qiw"]
+[ext_resource type="Script" path="res://Resources/scripts/memory_cell.gd" id="1_sxenm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uxl57"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_773la"]
+font_size = 25
+
+[node name="memoryCell" type="Panel"]
+self_modulate = Color(0.12549, 0.12549, 0.12549, 1)
+custom_minimum_size = Vector2(400, 80)
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_uxl57")
+script = ExtResource("1_sxenm")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = 5.0
+offset_right = -15.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="number_lbl" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "0"
+label_settings = SubResource("LabelSettings_773la")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="memBtn_container" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 2
+alignment = 2
+
+[node name="mc_btn" type="Button" parent="VBoxContainer/memBtn_container"]
+custom_minimum_size = Vector2(40, 30)
+layout_mode = 2
+mouse_filter = 1
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = ExtResource("1_22qiw")
+text = "MC"
+
+[node name="mPlus_btn" type="Button" parent="VBoxContainer/memBtn_container"]
+custom_minimum_size = Vector2(40, 30)
+layout_mode = 2
+mouse_filter = 1
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = ExtResource("1_22qiw")
+text = "M+"
+
+[node name="mSub_btn" type="Button" parent="VBoxContainer/memBtn_container"]
+custom_minimum_size = Vector2(40, 30)
+layout_mode = 2
+mouse_filter = 1
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = ExtResource("1_22qiw")
+text = "M-"
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="VBoxContainer/memBtn_container/mc_btn" to="." method="_on_mc_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/memBtn_container/mPlus_btn" to="." method="_on_m_plus_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/memBtn_container/mSub_btn" to="." method="_on_m_sub_btn_pressed"]

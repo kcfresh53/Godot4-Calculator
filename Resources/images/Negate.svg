@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <path d="M0 0L48 0L48 48L0 48L0 0Z" id="path_1" />
+    <clipPath id="clip_1">
+      <use xlink:href="#path_1" />
+    </clipPath>
+  </defs>
+  <g id="Negate" clip-path="url(#clip_1)">
+    <path d="M0 0L48 0L48 48L0 48L0 0Z" id="Negate" fill="none" fill-rule="evenodd" stroke="none" />
+    <path d="M22.6094 36L29.2925 11L27.1054 11L20.4222 36L22.6094 36L22.6094 36ZM14.549 19.5238L14.549 25.1111L16.8172 25.1111L16.8172 19.5238L22.3663 19.5238L22.3663 17.2399L16.8172 17.2399L16.8172 11.6527L14.549 11.6527L14.549 17.2399L9 17.2399L9 19.5238L14.549 19.5238L14.549 19.5238ZM39 30.7933L39 28.4007L27.1188 28.4007L27.1188 30.7933L39 30.7933L39 30.7933Z" id="Shape" fill="#FFFFFF" fill-rule="evenodd" stroke="none" />
+  </g>
+</svg>

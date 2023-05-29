@@ -1,0 +1,45 @@
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://co1ejnclhqsqx"]
+
+[sub_resource type="SystemFont" id="SystemFont_4raum"]
+font_names = PackedStringArray("Segoe UI Symbol")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3llk1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0oaak"]
+bg_color = Color(0.435294, 0.435294, 0.435294, 0.317647)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s1xi3"]
+bg_color = Color(0.203922, 0.203922, 0.203922, 0.588235)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_owdx7"]
+bg_color = Color(0.435294, 0.435294, 0.435294, 0.588235)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="SystemFont" id="SystemFont_irked"]
+font_names = PackedStringArray("Segoe UI")
+font_weight = 600
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1giub"]
+bg_color = Color(0.12549, 0.12549, 0.12549, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+
+[resource]
+Button/fonts/font = SubResource("SystemFont_4raum")
+Button/styles/focus = SubResource("StyleBoxEmpty_3llk1")
+Button/styles/hover = SubResource("StyleBoxFlat_0oaak")
+Button/styles/normal = SubResource("StyleBoxFlat_s1xi3")
+Button/styles/pressed = SubResource("StyleBoxFlat_owdx7")
+Label/fonts/font = SubResource("SystemFont_irked")
+Panel/styles/panel = SubResource("StyleBoxFlat_1giub")
