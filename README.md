@@ -13,4 +13,6 @@ The project covers:
 4. Instancing
 5. etc.
 
-This project is covered under the MIT license so it can be improved on as a community. If any issues are noticed, You can open an issue.
+This project is covered under the MIT license so it can be improved on as a community. If any issues are noticed, You can open a pull request or an issue so I can fix it.
+
+Happy Coding!!!
