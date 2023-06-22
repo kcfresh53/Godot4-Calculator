@@ -73,6 +73,7 @@ theme_override_font_sizes/font_size = 12
 theme_override_styles/normal = ExtResource("1_22qiw")
 text = "M-"
 
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="pressed" from="VBoxContainer/memBtn_container/mc_btn" to="." method="_on_mc_btn_pressed"]

@@ -1,0 +1,29 @@
+[gd_resource type="Shader" format=3 uid="uid://b64v3genyyvo3"]
+
+[resource]
+code = "shader_type canvas_item;
+
+uniform vec4 tint : source_color;
+
+uniform sampler2D noise: repeat_enable;
+uniform float noise_scale : hint_range(0, 1.0) = 0.2;
+uniform float noise_opacity : hint_range(0, 1.0) = 0.05;
+
+uniform vec2 pos_on_screen;
+uniform vec2 screen_size;
+
+uniform vec2 texture_size;
+
+void fragment() {
+	vec4 color;
+	vec2 UV_screen_offset = pos_on_screen / screen_size;
+	vec2 texture_scale = texture_size / screen_size;
+	
+	// Wallpaper
+	color = texture(TEXTURE, (UV * texture_scale + UV_screen_offset));
+	color = mix(color, tint, tint.a);
+
+	// Add noise
+	color = mix(color, texture(noise, UV * (1.0 / noise_scale)), noise_opacity);
+	COLOR = color;
+}"

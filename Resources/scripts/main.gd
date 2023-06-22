@@ -1,4 +1,4 @@
-extends ColorRect
+extends Control
 
 # Onready Variables
 @onready var btnContainer = get_node("Screen/Button_container/OperationBtn_container")
@@ -16,7 +16,7 @@ var operator = "" #stores the current working operator
 var first_num : float #stores the first number
 var second_num : float #stores the second number
 var memory : Array = [] #stores number to Memory
-var history : Dictionary = {} #stores calculation history
+var history : Array = [] #stores calculation history
 var animation_type = Tween.TRANS_CIRC #sets global tweening style
 var animation_speed : float = 0.25 #sets global tween speed
 
@@ -105,7 +105,7 @@ func _on_equals_btn_pressed():
 	workArea.text = str(result)
 	
 	# Store the result in the history dictionary if there are no errors
-	history[prevWorkArea.text] = workArea.text
+	history.append([prevWorkArea.text, workArea.text])
 
 
 #----------------------------------------------------------------
@@ -246,6 +246,7 @@ func _on_ms_btn_pressed():
 	physical_mem.clear.connect(self.memory_cell_clear.bind(physical_mem)) # clear
 	physical_mem.add.connect(self.memory_cell_add.bind(physical_mem)) # add
 	physical_mem.subtract.connect(self.memory_cell_sub.bind(physical_mem)) # subtract
+	#physical_mem.hide.connect(self.cell_hide) # hide overlay when pressed
 
 
 # add to memory
@@ -326,7 +327,6 @@ func _on_history_btn_pressed():
 	tween.tween_property(history_pnl, "custom_minimum_size", numpad_size, animation_speed).set_trans(animation_type)
 
 
-
 #----------------------------------------------------------------
 # Appears with custom popups
 # Causes popups to close once clicked
@@ -337,6 +337,7 @@ func _on_overlay_gui_input(event):
 			# Wait for hide animation to finish
 			await reset_popups()
 			overlay.visible = false
+
 
 # resets all popups
 func reset_popups():
@@ -374,4 +375,11 @@ func memory_cell_sub(node):
 	memory[node.get_index()] -= workArea.text.to_float()
 	# update gui
 	memScrollContainer.get_child(node.get_index()).number = memory[node.get_index()]
+
+
+# hides popups if memory cell is pressed
+func cell_hide():
+	await reset_popups()
+	overlay.visible = false
+
 

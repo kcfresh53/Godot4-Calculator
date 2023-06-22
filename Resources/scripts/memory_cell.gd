@@ -10,6 +10,7 @@ var number : float : set = _update_number
 signal clear(node)
 signal add(node)
 signal subtract(node)
+signal hide
 
 # Sets the value passed once instanced
 func _ready():
@@ -46,3 +47,7 @@ func _on_m_sub_btn_pressed():
 	emit_signal("subtract")
 
 
+func _on_gui_input(event):
+	if event is InputEventMouseButton:
+		if event.button_index == 1 && event.pressed:
+			emit_signal("hide")

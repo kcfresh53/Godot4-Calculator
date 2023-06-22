@@ -1,10 +1,11 @@
-[gd_scene load_steps=80 format=3 uid="uid://xsvk2fnflv5o"]
+[gd_scene load_steps=81 format=3 uid="uid://xsvk2fnflv5o"]
 
 [ext_resource type="Texture2D" uid="uid://i2fcxwvg6ws8" path="res://Resources/images/menu.svg" id="1_0vjm0"]
 [ext_resource type="Theme" uid="uid://co1ejnclhqsqx" path="res://Resources/others/default_theme.tres" id="1_cnpxh"]
 [ext_resource type="Texture2D" uid="uid://b0rtuqi77vdin" path="res://Resources/images/history.svg" id="2_mn05w"]
 [ext_resource type="Script" path="res://Resources/scripts/main.gd" id="2_p73p5"]
 [ext_resource type="Texture2D" uid="uid://cgd5d36fasrvj" path="res://Resources/images/Always on top.svg" id="3_1i642"]
+[ext_resource type="Script" path="res://addons/acrylic_glass/acrylic_glass.gd" id="3_y881j"]
 [ext_resource type="Texture2D" uid="uid://rw0wvfawg83w" path="res://Resources/images/Delete.svg" id="5_1428i"]
 [ext_resource type="StyleBox" uid="uid://ccx5ntrlvwmql" path="res://Resources/others/memoryButton_normal.tres" id="5_ntykk"]
 [ext_resource type="StyleBox" uid="uid://c1vv0jstq5de3" path="res://Resources/others/memoryButton_hover.tres" id="6_0vxy6"]
@@ -252,15 +253,24 @@ unicode = 108
 [sub_resource type="Shortcut" id="Shortcut_yqkbi"]
 events = [SubResource("InputEventKey_ln6et")]
 
-[node name="Main" type="ColorRect"]
+[node name="Main" type="Control"]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_cnpxh")
-color = Color(0.12549, 0.12549, 0.12549, 1)
 script = ExtResource("2_p73p5")
+
+[node name="AcrylicGlass" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("3_y881j")
+tint_color = Color(0.121569, 0.121569, 0.121569, 0.913725)
+fade_in_duration = 0.2
 
 [node name="Screen" type="VBoxContainer" parent="."]
 layout_mode = 1
